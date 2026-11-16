@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Redirect Guard",
+  "version": "0.1.0",
+  "description": "Stops popup tabs, hidden ad links and forced redirects on the sites you choose.",
+  "minimum_chrome_version": "119",
+  "permissions": ["declarativeNetRequest", "scripting", "storage", "tabs", "webNavigation"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Redirect Guard"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      { "id": "ad_domains", "enabled": true, "path": "rules.json" }
+    ]
+  }
+}
